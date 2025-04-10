@@ -32,14 +32,31 @@
          "binaryDir": "${sourceDir}/build/release",
          "cacheVariables": {
            "CMAKE_BUILD_TYPE": "Release", 
-           "CMAKE_CXX_COMPILER": "C:/msys64/ucrt64/bin/g++.exe", 
-           "CMAKE_C_COMPILER": "/path-to-msys64/ucrt64/bin/gcc.exe",  
-           "CMAKE_INSTALL_PREFIX": "${sourceDir}/install", 
-           "CMAKE_MAKE_PROGRAM": "Unix Makefiles",
+           "CMAKE_CXX_COMPILER": "g++.exe", 
+           "CMAKE_C_COMPILER": "gcc.exe",  
+           "CMAKE_INSTALL_PREFIX": "C:/vcpkg/install", 
+           "CMAKE_MAKE_PROGRAM": "C:/msys64/ucrt64/bin/mingw32-make.exe",
            "CMAKE_PREFIX_PATH": "C:/vcpkg/installed/x64-mingw-static",
            "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake" 
           }
-       }  
+       },  
+       {
+        "name": "ucrt64-gcc",
+        "displayName": "MSYS2 UCRT64 GCC",
+        "generator": "Unix Makefiles",
+        "description": "Build using MSYS2 UCRT64 GCC",
+        "binaryDir": "${sourceDir}/build/${presetName}",
+        "cacheVariables": {
+          "CMAKE_BUILD_TYPE": "Release",
+          "CMAKE_C_COMPILER": "gcc",
+          "CMAKE_CXX_COMPILER": "g++",
+          "CMAKE_INSTALL_PREFIX": "C:/vcpkg/installed",
+          "CMAKE_MAKE_PROGRAM": "C:/msys64/ucrt64/bin/mingw32-make.exe",
+          "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake",
+          "VCPKG_TARGET_TRIPLET": "x64-mingw-static"
+        }
+    }
+      
     ],    
     "buildPresets": [
       {
