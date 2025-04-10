@@ -24,8 +24,23 @@
           "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake",
           "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
         }
-      }
-    ],
+      },
+      {
+        "name": "ucrt64-release",
+         "description": "Release build with MSYS2 UCRT64 GCC and fmt using Makefiles",
+         "generator": "Unix Makefiles", 
+         "binaryDir": "${sourceDir}/build/release",
+         "cacheVariables": {
+           "CMAKE_BUILD_TYPE": "Release", 
+           "CMAKE_CXX_COMPILER": "C:/msys64/ucrt64/bin/g++.exe", 
+           "CMAKE_C_COMPILER": "/path-to-msys64/ucrt64/bin/gcc.exe",  
+           "CMAKE_INSTALL_PREFIX": "${sourceDir}/install", 
+           "CMAKE_MAKE_PROGRAM": "Unix Makefiles",
+           "CMAKE_PREFIX_PATH": "C:/vcpkg/installed/x64-mingw-static",
+           "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake" 
+          }
+       }  
+    ],    
     "buildPresets": [
       {
         "name": "build-release",
@@ -47,4 +62,3 @@
       }
     ]
   }
-  
