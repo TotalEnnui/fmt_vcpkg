@@ -1,0 +1,50 @@
+{
+    "version": 3,
+    "cmakeMinimumRequired": {
+      "major": 3,
+      "minor": 21,
+      "patch": 0
+    },
+    "configurePresets": [
+      {
+        "name": "default",
+        "hidden": true,
+        "generator": "Visual Studio 17 2022",
+        "architecture": "x64"
+      },
+      {
+        "name": "release",
+        "inherits": "default",
+        "description": "Configure the project in Release mode using MSVC",
+        "binaryDir": "${sourceDir}/build/release",
+        "cacheVariables": {
+          "CMAKE_BUILD_TYPE": "Release",
+          "CMAKE_RUNTIME_OUTPUT_DIRECTORY":  "./bin",
+          "CMAKE_PREFIX_PATH": "C:/vcpkg/installed/x64-windows",
+          "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake",
+          "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+        }
+      }
+    ],
+    "buildPresets": [
+      {
+        "name": "build-release",
+        "configurePreset": "release",
+        "description": "Build the project in Release mode",
+        "targets": [
+          "all"
+        ]
+      }
+    ],
+    "testPresets": [
+      {
+        "name": "test-release",
+        "configurePreset": "release",
+        "description": "Run tests for the Release build",
+        "output": {
+          "outputOnFailure": true
+        }
+      }
+    ]
+  }
+  
