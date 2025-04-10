@@ -16,7 +16,7 @@
         "name": "release",
         "inherits": "default",
         "description": "Configure the project in Release mode using MSVC",
-        "binaryDir": "${sourceDir}/build/release",
+        "binaryDir": "${sourceDir}/build",
         "cacheVariables": {
           "CMAKE_BUILD_TYPE": "Release",
           "CMAKE_RUNTIME_OUTPUT_DIRECTORY":  "./bin",
