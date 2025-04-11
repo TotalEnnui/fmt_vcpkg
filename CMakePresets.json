@@ -13,16 +13,20 @@
         "architecture": "x64"
       },
       {
-        "name": "release",
+        "name": "MSVC-release",
         "inherits": "default",
         "description": "Configure the project in Release mode using MSVC",
         "binaryDir": "${sourceDir}/build",
         "cacheVariables": {
           "CMAKE_BUILD_TYPE": "Release",
-          "CMAKE_RUNTIME_OUTPUT_DIRECTORY":  "./bin",
+          "CMAKE_C_COMPILER": "cl.exe",
+          "CMAKE_CXX_COMPILER": "cl.exe",
+          "CMAKE_INSTALL_PREFIX": "C:/vcpkg/install",
           "CMAKE_PREFIX_PATH": "C:/vcpkg/installed/x64-windows",
           "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake",
-          "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+          "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+          "CMAKE_RUNTIME_OUTPUT_DIRECTORY":  "./bin",
+          "CMAKE_LIBRARY_OUTPUT_DIRECTORY":  "./lib"
         }
       },
       {
@@ -55,13 +59,12 @@
           "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake",
           "VCPKG_TARGET_TRIPLET": "x64-mingw-static"
         }
-    }
-      
+     }
     ],    
     "buildPresets": [
       {
         "name": "build-release",
-        "configurePreset": "release",
+        "configurePreset": "MSVC-release",
         "description": "Build the project in Release mode",
         "targets": [
           "all"
@@ -71,7 +74,7 @@
     "testPresets": [
       {
         "name": "test-release",
-        "configurePreset": "release",
+        "configurePreset": "MSVC-release",
         "description": "Run tests for the Release build",
         "output": {
           "outputOnFailure": true
