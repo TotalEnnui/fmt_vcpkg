@@ -1,0 +1,8 @@
+{
+  "name": "fmt_vcpkg",
+  "version": "1.0.0",
+  "dependencies": [
+    "fmt"
+  ],
+  "builtin-baseline": "bf1a3841b259bc4a14937e4c2f618914018e53a8"
+}

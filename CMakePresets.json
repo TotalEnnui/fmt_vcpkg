@@ -29,6 +29,30 @@
           "CMAKE_LIBRARY_OUTPUT_DIRECTORY":  "./lib"
         }
       },
+          {
+      "name": "msvc-nmake-manifest",
+      "displayName": "MSVC with NMake and Manifest Mode",
+      "description": "Build using MSVC and NMake with manifest embedding enabled.",
+      "generator": "NMake Makefiles",
+      "binaryDir": "${sourceDir}/out/build/msvc-nmake-manifest",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "cl",
+        "CMAKE_CXX_COMPILER": "cl",
+        "CMAKE_EXE_LINKER_FLAGS": "/manifest"
+      }
+    },
+    {
+      "name": "msvc-nmake-manifest",
+      "displayName": "MSVC with NMake and Manifest Mode",
+      "description": "Build using MSVC and NMake with manifest embedding enabled.",
+      "generator": "NMake Makefiles",
+      "binaryDir": "${sourceDir}/out/build/msvc-nmake-manifest",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "cl",
+        "CMAKE_CXX_COMPILER": "cl",
+        "CMAKE_EXE_LINKER_FLAGS": "/manifest"
+      }
+    },
       {
         "name": "ucrt64-release",
          "description": "Release build with MSYS2 UCRT64 GCC and fmt using Makefiles",
@@ -43,29 +67,21 @@
            "CMAKE_PREFIX_PATH": "C:/vcpkg/installed/x64-mingw-static",
            "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake" 
           }
-       },  
-       {
-        "name": "ucrt64-gcc",
-        "displayName": "MSYS2 UCRT64 GCC",
-        "generator": "Unix Makefiles",
-        "description": "Build using MSYS2 UCRT64 GCC",
-        "binaryDir": "${sourceDir}/build/${presetName}",
-        "cacheVariables": {
-          "CMAKE_BUILD_TYPE": "Release",
-          "CMAKE_C_COMPILER": "gcc",
-          "CMAKE_CXX_COMPILER": "g++",
-          "CMAKE_INSTALL_PREFIX": "C:/vcpkg/installed",
-          "CMAKE_MAKE_PROGRAM": "C:/msys64/ucrt64/bin/mingw32-make.exe",
-          "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake",
-          "VCPKG_TARGET_TRIPLET": "x64-mingw-static"
-        }
-     }
+       }
     ],    
     "buildPresets": [
       {
         "name": "build-release",
         "configurePreset": "MSVC-release",
         "description": "Build the project in Release mode",
+        "targets": [
+          "all"
+        ]
+      },
+      {
+        "name": "build-ucrt64-gcc",
+        "configurePreset": "ucrt64-release",
+        "description": "Build the project using MSYS2 UCRT64 GCC",
         "targets": [
           "all"
         ]
