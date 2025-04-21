@@ -33,14 +33,20 @@
         }
       },
       {
-        "name": "msvc-nmake-manifest",
+        "name": "msvc-manifest",
         "displayName": "MSVC with NMake and Manifest Mode",
         "description": "Build using MSVC and NMake with manifest embedding enabled.",
-        "generator": "NMake Makefiles",
+        "generator": "Visual Studio 17 2022",
         "binaryDir": "${sourceDir}/out/build/msvc-nmake-manifest",
         "cacheVariables": {
           "CMAKE_C_COMPILER": "cl",
           "CMAKE_CXX_COMPILER": "cl",
+          "CMAKE_PREFIX_PATH": "C:/vcpkg/installed/x64-windows",
+          "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake",
+          "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+          "CMAKE_RUNTIME_OUTPUT_DIRECTORY":  "./bin",
+          "CMAKE_LIBRARY_OUTPUT_DIRECTORY":  "./lib",
+          "CMAKE_INSTALL_PREFIX": "C:/vcpkg/install",
           "CMAKE_EXE_LINKER_FLAGS": "/manifest"
         }
     },
