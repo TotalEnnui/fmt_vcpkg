@@ -1,97 +1,41 @@
 {
-    "version": 3,
-    "cmakeMinimumRequired": {
-      "major": 3,
-      "minor": 21,
-      "patch": 0
-    },
-    "configurePresets": [
-      {
-        "name": "default",
-        "hidden": true,
-        "generator": "Visual Studio 17 2022",
-        "architecture": "x64"
-      },
-      {
-        "name": "MSVC-release-no-manifest",
-        "displayName": "MSVC Release No Manifest",
-        "inherits": "default",
-        "description": "Configure the project in Release mode using MSVC, no manifest",
-        "generator": "Visual Studio 17 2022",
-        "binaryDir": "${sourceDir}/build",
-        "cacheVariables": {
-          "CMAKE_BUILD_TYPE": "Release",
-          "CMAKE_C_COMPILER": "cl.exe",
-          "CMAKE_CXX_COMPILER": "cl.exe",
-          "CMAKE_EXE_LINKER_FLAGS": "/MANIFEST:NO",
-          "CMAKE_INSTALL_PREFIX": "C:/vcpkg/install",
-          "CMAKE_PREFIX_PATH": "C:/vcpkg/installed/x64-windows",
-          "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake",
-          "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
-          "CMAKE_RUNTIME_OUTPUT_DIRECTORY":  "./bin",
-          "CMAKE_LIBRARY_OUTPUT_DIRECTORY":  "./lib"
-        }
-      },
-      {
-        "name": "msvc-manifest",
-        "displayName": "MSVC with NMake and Manifest Mode",
-        "description": "Build using MSVC and NMake with manifest embedding enabled.",
-        "generator": "Visual Studio 17 2022",
-        "binaryDir": "${sourceDir}/out/build/msvc-nmake-manifest",
-        "cacheVariables": {
-          "CMAKE_C_COMPILER": "cl",
-          "CMAKE_CXX_COMPILER": "cl",
-          "CMAKE_PREFIX_PATH": "C:/vcpkg/installed/x64-windows",
-          "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake",
-          "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
-          "CMAKE_RUNTIME_OUTPUT_DIRECTORY":  "./bin",
-          "CMAKE_LIBRARY_OUTPUT_DIRECTORY":  "./lib",
-          "CMAKE_INSTALL_PREFIX": "C:/vcpkg/install",
-          "CMAKE_EXE_LINKER_FLAGS": "/manifest"
-        }
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 21,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "linux-debug",
+      "hidden": false,
+      "generator": "Ninja",
+      "description": "Debug build using g++",
+      "binaryDir": "${sourceDir}/build/debug",
+      "cacheVariables": {
+        "fmt_DIR": "/home/adrian/vcpkg/installed/x64-linux/share/fmt",
+        "CMAKE_C_COMPILER": "/usr/bin/gcc",
+        "CMAKE_CXX_COMPILER": "/usr/bin/g++",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_PREFIX_PATH" : "/home/adrian/vcpkg/installed/x64-linux",
+        "CMAKE_TOOLCHAIN_FILE": "/home/adrian/vcpkg/scripts/buildsystems/vcpkg.cmake"
+      }
     },
     {
-      "name": "ucrt64-release",
-       "description": "Release build with MSYS2 UCRT64 GCC and fmt using Makefiles",
-       "generator": "Unix Makefiles", 
-       "binaryDir": "${sourceDir}/build/release",
-          "cacheVariables": {
-           "CMAKE_BUILD_TYPE": "Release", 
-           "CMAKE_CXX_COMPILER": "g++.exe", 
-           "CMAKE_C_COMPILER": "gcc.exe",  
-           "CMAKE_INSTALL_PREFIX": "C:/vcpkg/install", 
-           "CMAKE_MAKE_PROGRAM": "C:/msys64/ucrt64/bin/mingw32-make.exe",
-           "CMAKE_PREFIX_PATH": "C:/vcpkg/installed/x64-mingw-static",
-           "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake" 
-          }
+      "name": "linux-release",
+      "hidden": false,
+      "generator": "Ninja",
+      "description": "Release build using g++",
+      "binaryDir": "${sourceDir}/build/release",
+      "cacheVariables": {
+        "fmt_DIR": "/home/adrian/vcpkg/installed/x64-linux/share/fmt",
+        "CMAKE_TOOLCHAIN_FILE": "/home/adrian/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "CMAKE_C_COMPILER": "/usr/bin/gcc",
+        "CMAKE_CXX_COMPILER": "/usr/bin/g++",
+        "CMAKE_PREFIX_PATH" : "/home/adrian/vcpkg/installed/x64-linux",
+        "CMAKE_RUNTIME_OUTPUT_DIRECTORY": "build/release/bin",
+        "CMAKE_BUILD_TYPE": "Release"
       }
-    ],    
-    "buildPresets": [
-      {
-        "name": "build-release",
-        "configurePreset": "MSVC-release-no-manifest",
-        "description": "Build the project in Release mode",
-        "targets": [
-          "all"
-        ]
-      },
-      {
-        "name": "build-ucrt64-gcc",
-        "configurePreset": "ucrt64-release",
-        "description": "Build the project using MSYS2 UCRT64 GCC",
-        "targets": [
-          "all"
-        ]
-      }
-    ],
-    "testPresets": [
-      {
-        "name": "test-release",
-        "configurePreset": "MSVC-release-no-manifest",
-        "description": "Run tests for the Release build",
-        "output": {
-          "outputOnFailure": true
-        }
-      }
-    ]
-  }
+    }
+  ]
+}

@@ -11,8 +11,7 @@ message(STATUS "CMAKE_TOOLCHAIN_FILE:  ${CMAKE_TOOLCHAIN_FILE}")
 #find_package(fmt CONFIG REQUIRED)
 find_package(fmt REQUIRED)
 
-
 add_executable(main main.cpp)
 
 # target_link_libraries(main PRIVATE fmt::fmt)
-target_link_libraries(main PRIVATE fmt::fmt-header-only)
+target_link_libraries(main PRIVATE fmt::fmt)
