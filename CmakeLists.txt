@@ -2,15 +2,10 @@ cmake_minimum_required(VERSION 3.20)
 
 project(fmt_vcpkg)
 
-# set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ./bin)
-# set(CMAKE_PREFIX_PATH "C:/vcpkg/installed/x64-windows")
-# set(CMAKE_TOOLCHAIN_FILE "C:/vcpkg/scripts/buildsystems/vcpkg.cmake")
-
-message(STATUS "CMAKE_TOOLCHAIN_FILE:  ${CMAKE_TOOLCHAIN_FILE}")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ./bin)
 
 #find_package(fmt CONFIG REQUIRED)
 find_package(fmt REQUIRED)
-
 
 add_executable(main main.cpp)
 
