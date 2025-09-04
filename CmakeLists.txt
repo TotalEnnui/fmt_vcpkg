@@ -1,8 +1,12 @@
 cmake_minimum_required(VERSION 3.20)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 project(fmt_vcpkg)
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ./bin)
+# set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ./bin)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 #find_package(fmt CONFIG REQUIRED)
 find_package(fmt REQUIRED)
@@ -10,4 +14,12 @@ find_package(fmt REQUIRED)
 add_executable(main main.cpp)
 
 # target_link_libraries(main PRIVATE fmt::fmt)
-target_link_libraries(main PRIVATE fmt::fmt-header-only)
+# target_link_libraries(main PRIVATE fmt::fmt-header-only)
+
+option(USE_FMT_HEADER_ONLY "Use fmt as header-only" ON)
+
+if(USE_FMT_HEADER_ONLY)
+    target_link_libraries(main PRIVATE fmt::fmt-header-only)
+else()
+    target_link_libraries(main PRIVATE fmt::fmt)
+endif()
