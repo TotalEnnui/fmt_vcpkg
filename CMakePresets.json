@@ -40,8 +40,19 @@
         "CMAKE_MAKE_PROGRAM": "C:/msys64/ucrt64/bin/mingw32-make.exe",
         "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake"
       }
+    },
+    {
+      "name": "ucrt64-ninja",
+      "displayName": "UCRT64 with Ninja",
+      "description": "Build using MSYS2 UCRT64 GCC and Ninja",
+      "generator": "Ninja",
+      "binaryDir": "build/ucrt64-ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake"
+      }
     }
-  ],
+    ],
   "buildPresets": [
     {
       "name": "build-msvc-release",
