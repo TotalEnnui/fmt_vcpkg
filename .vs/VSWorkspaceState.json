@@ -1,0 +1,15 @@
+{
+  "OutputFoldersPerTargetSystem": {
+    "Local Machine": [
+      "build\\default",
+      "build\\msvc-release",
+      "build\\ucrt64-release",
+      "build\\ucrt64-ninja"
+    ]
+  },
+  "ExpandedNodes": [
+    ""
+  ],
+  "SelectedNode": "\\CmakeLists.txt",
+  "PreviewInSolutionExplorer": false
+}

@@ -11,12 +11,13 @@
       "CMAKE_C_COMPILER": "cl.exe",
       "CMAKE_CXX_COMPILER": "cl.exe",
       "CMAKE_BUILD_TYPE": "Release",
+      "CMAKE_MAKE_PROGRAM": "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/MSBuild.exe",
       "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake"
       }
     },  
     {
-      "name": "msvc-release",
-      "displayName": "MSVC Release",
+      "name": "msvc-ninja-release",
+      "displayName": "MSVC ninja Release",
       "description": "Release build using MSVC",
       "generator": "Ninja",
       "binaryDir": "build/msvc-release",
@@ -24,6 +25,7 @@
         "CMAKE_C_COMPILER": "cl.exe",
         "CMAKE_CXX_COMPILER": "cl.exe",
         "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_MAKE_PROGRAM": "C:/Program Files/Ninja/ninja.exe",
         "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake"
       }
     },
@@ -49,18 +51,28 @@
       "binaryDir": "build/ucrt64-ninja",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_C_COMPILER": "C:/msys64/ucrt64/bin/gcc.exe",
+        "CMAKE_CXX_COMPILER": "C:/msys64/ucrt64/bin/g++.exe",
+        "CMAKE_MAKE_PROGRAM": "C:/msys64/ucrt64/bin/ninja.exe",
         "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake"
       }
     }
     ],
   "buildPresets": [
     {
-      "name": "build-msvc-release",
-      "configurePreset": "msvc-release"
+      "name": "build-default-release",
+      "configurePreset": "default",
+      "configuration": "Release"
+    },
+    {
+      "name": "build-msvc-ninja",
+      "configurePreset": "msvc-ninja-release",
+      "configuration": "Release"
     },
     {
       "name": "build-ucrt64-release",
-      "configurePreset": "ucrt64-release"
+      "configurePreset": "ucrt64-release",
+      "configuration": "Release"
     }
   ]
 }

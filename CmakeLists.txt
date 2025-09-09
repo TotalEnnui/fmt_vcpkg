@@ -23,3 +23,7 @@ if(USE_FMT_HEADER_ONLY)
 else()
     target_link_libraries(main PRIVATE fmt::fmt)
 endif()
+
+# ucrt64-ninja with ucrt64 bash
+# configure:    cmake --build build/ucrt64-ninja
+# build:        cmake --build build/ucrt64-ninja
