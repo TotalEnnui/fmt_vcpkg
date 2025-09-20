@@ -26,7 +26,8 @@
         "CMAKE_CXX_COMPILER": "cl.exe",
         "CMAKE_BUILD_TYPE": "Release",
         "CMAKE_MAKE_PROGRAM": "C:/Program Files/Ninja/ninja.exe",
-        "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake"
+        "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-windows"
       }
     },
     {
@@ -72,6 +73,11 @@
     {
       "name": "build-ucrt64-release",
       "configurePreset": "ucrt64-release",
+      "configuration": "Release"
+    },
+    {
+      "name": "ucrt64-ninja",
+      "configurePreset": "ucrt64-ninja",
       "configuration": "Release"
     }
   ]
