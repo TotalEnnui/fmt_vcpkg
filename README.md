@@ -12,5 +12,8 @@ Instructions and targets for building the UCT64 project.#####  ucrt64-ninja with
 cmake --preset ucrt64-ninja
 cmake --build --preset ucrt64-ninja
 
+## Configure git
+$ git config --global user.nam "TotalEnnui"
+$ git config --global user.email "aprpkp@gmail.com"
 
 
