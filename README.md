@@ -18,3 +18,4 @@ git config --global user.email "aprpkp@gmail.com"
 
 # Reconfiguring cmake  
 deleting <u>CMakeCache.txt</u> file, CMake will reconfigure the project from scratch the next time you run cmake or build using a preset  
+
