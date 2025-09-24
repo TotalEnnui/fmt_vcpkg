@@ -1,12 +1,9 @@
-# Project configuration
+# Project configuration ---------------------------------------------------------
 cmake_minimum_required(VERSION 3.20)  # global cmake version for targets
 project(fmt_vcpkg)
 
-# global settings
-## Output directory
+# Project wide settings
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-
-# Project wide options
 option(USE_FMT_HEADER_ONLY "Use fmt as header-only" ON)
 
 # Compiler settings
@@ -15,13 +12,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # target sources
 set(SOURCE_FILES src/main.cpp)
-set(PROJECT_TARGET main)
 
-# Target Declarations
+# Target Declarations  -----------------------------------------------
+set(PROJECT_TARGET main)
 add_executable(${PROJECT_TARGET} ${SOURCE_FILES})
 target_compile_features(${PROJECT_TARGET} PRIVATE cxx_std_20)   # this target specifically requires C++20
 
-# Target configuration - dependency declarations and linking
+# Target configuration - dependency declarations and linking  -------------------------------
 find_package(fmt CONFIG REQUIRED)  # what is being linked and using configuration vs modular setup 
 
 #############################################################
