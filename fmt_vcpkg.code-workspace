@@ -1,0 +1,59 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    // Use CMakePresets.json for all configuration
+    "cmake.useCMakePresets": "always",
+
+    // Optional: default terminal profile for reproducible shell behavior
+    "terminal.integrated.profiles.windows": {
+      "MSYS2-UCRT64": {
+        "path": "C:\\msys64\\usr\\bin\\bash.exe",
+        "args": ["--login", "-i"],
+        "env": {
+          "MSYSTEM": "UCRT64"
+        }
+      }
+    },
+    "terminal.integrated.defaultProfile.windows": "MSYS2-UCRT64",
+
+    // Clean up clutter
+    "files.exclude": {
+      "**/.vs": true,
+      "**/build": true
+    },
+
+    // Editor preferences
+    "editor.formatOnSave": true
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-vscode.cmake-tools",
+      "twxs.cmake",
+      "ms-vscode.cpptools",
+      "ms-vscode.powershell"
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Build (preset: ucrt64-debug)",
+        "type": "shell",
+        "command": "cmake --build --preset ucrt64-debug",
+        "group": "build",
+        "problemMatcher": []
+      },
+      {
+        "label": "Configure (preset: ucrt64-debug)",
+        "type": "shell",
+        "command": "cmake --preset ucrt64-debug",
+        "group": "build",
+        "problemMatcher": []
+      }
+    ]
+  }
+}
